@@ -16,7 +16,7 @@ interface CreateResponse {
 
 @Injectable({providedIn: 'root'})
 export class TasksService {
-  static url = 'https://angular-practice-calendar.firebaseio.com/tasks'
+  static url = '#'
 
   constructor(private http: HttpClient) {
   }
