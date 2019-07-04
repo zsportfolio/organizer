@@ -16,7 +16,7 @@ interface CreateResponse {
 
 @Injectable({providedIn: 'root'})
 export class TasksService {
-  static url = '#'
+  static url = 'https://myproj-2bf33.firebaseio.com/tasks'
 
   constructor(private http: HttpClient) {
   }
