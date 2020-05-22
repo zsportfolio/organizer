@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prettier": "./node_modules/.bin/prettier --single-quote --write './src/**/*.{ts, js, css, json}'"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,7 @@
     "rxjs": "~6.4.0",
     "tslib": "^1.11.1",
     "zone.js": "~0.9.1"
+    
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.901.4",
@@ -48,5 +50,17 @@
     "tslint": "~5.15.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "~3.4.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "ng build --aot true"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts, json, css, md}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   }
 }
